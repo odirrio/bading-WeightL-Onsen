@@ -8,14 +8,14 @@
   </head>
 
   <body>
-<ons-page>
+<ons-page id="home">
   <ons-toolbar>
     <div class="left">
       <ons-toolbar-button onclick="prev()">
         <ons-icon icon="md-chevron-left"></ons-icon>
       </ons-toolbar-button>
     </div>
-    <div class="center">Carousel</div>
+    <div class="center">WeightNote</div>
     <div class="right">
       <ons-toolbar-button onclick="next()">
         <ons-icon icon="md-chevron-right"></ons-icon>
@@ -31,11 +31,11 @@
 		
 		  <div style="text-align: center; margin-top: 30px;">
     <p>
-      <ons-input id="gewicht"  placeholder="Voer hier uw gewicht in." float></ons-input>
+      <ons-input id="item"  placeholder="Voer hier uw gewicht in." float></ons-input>
     </p>
 
     <p style="margin-top: 30px;">
-      <ons-button onclick="Gewicht()">Toevoegen</ons-button>
+      <ons-button onclick="addItem()">Toevoegen</ons-button>
     </p>
   </div>
       </div>
@@ -46,8 +46,7 @@
       <div style="text-align: center; font-size: 30px; margin-top: 20px; color: #fff;">
         Overzicht
 		
-	 			 <ons-list>
-    <ons-list-header>Default</ons-list-header>
+	<ons-list id="shoppinglist">
     <ons-list-item>Item A</ons-list-item>
     <ons-list-item>Item B</ons-list-item>
 	</ons-list>
