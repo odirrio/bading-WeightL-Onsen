@@ -23,15 +23,14 @@
     </div>
   </ons-toolbar>
 
-  
   <ons-carousel fullscreen swipeable auto-scroll overscrollable id="carousel">
     <ons-carousel-item style="background-color: #2c3c56	;">
       <div style="text-align: center; font-size: 30px; margin-top: 20px; color: #fff;">
         gewicht
 		
-		  <div style="text-align: center; margin-top: 30px;">
+		  <div style="text-align:center; margin-top: 30px; ">
     <p>
-      <ons-input id="item"  placeholder="Voer hier uw gewicht in." float></ons-input>
+      <ons-input id="item"  placeholder="Voer hier uw gewicht in." ></ons-input>
     </p>
 
     <p style="margin-top: 30px;">
@@ -58,11 +57,76 @@
       <div style="text-align: center; font-size: 30px; margin-top: 20px; color: #fff;">
         Grafiek
       </div>
+	  <div id="chartContainer" style="height: 300px; width: 100%;">
+  </div>
     </ons-carousel-item>
 	
 	
   </ons-carousel>
 </ons-page>
 <script src="app.js"></script>
+<script type="text/javascript" src="assets/script/canvasjs.min.js"></script>
+
+  <script type="text/javascript">
+  window.onload = function () {
+    var chart = new CanvasJS.Chart("chartContainer",
+    {      
+      theme:"theme2",
+      title:{
+        text: "Je Gewicht, Gender neutral pronoun"
+      },
+      animationEnabled: true,
+      axisY :{
+        includeZero: false,
+        // suffix: " k",
+        valueFormatString: "#,,.",
+        suffix: " mn"
+        
+      },
+      toolTip: {
+        shared: "true"
+      },
+      data: [
+      {        
+        type: "spline", 
+        showInLegend: true,
+        name: "Gewicht",
+        // markerSize: 0,        
+        // color: "rgba(54,158,173,.6)",
+        dataPoints: [
+        {label: "Dag 1", y: 56},
+        {label: "Dag 2", y: 51},        
+        {label: "Dag 3", y: 46},        
+        {label: "Dag. 4", y: 45},        
+        {label: "Dag 5", y: 44},        
+        {label: "Dag. 6", y: 43},        
+        {label: "Dag 7", y: 41},        
+        {label: "Dag 8", y: 36},        
+        {label: "Dag 9", y: 47},        
+        {label: "Dag 10", y: 52}        
+
+        ]
+      }
+      
+
+      ],
+      legend:{
+        cursor:"pointer",
+        itemclick : function(e) {
+          if (typeof(e.dataSeries.visible) === "undefined" || e.dataSeries.visible ){
+          	e.dataSeries.visible = false;
+          }
+          else {
+            e.dataSeries.visible = true;
+          }
+          chart.render();
+        }
+        
+      },
+    });
+
+chart.render();
+}
+</script>
   </body>
 </html>

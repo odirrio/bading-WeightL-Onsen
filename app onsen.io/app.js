@@ -58,7 +58,7 @@ function renderItems(tx, rs)
 	for (i = 0; i < rs.rows.length; i++)
 	{
 		var row = rs.rows.item(i);
-		output+= "<ons-list-item>" + row.item +
+		output+= "<ons-list-item>" + row.item + "   KG" +
 		"<div class=\"right\"> <ons-button onclick='deleteItem(" + row.ID + ");')> <ons-icon icon=\"trash\"> </ons-icon> </ons-button> </div>" +
 		"</ons-list-item>";
 	}
